@@ -8,49 +8,54 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="Heron's Formula">
-        <p>Heron's Formula</p>
-        <label for="SideA">Side A:</label><br>
-        <input type="text" id="SideA" name="SideA"><br>
-        <label for="SideB">Side B:</label><br>
-        <input type="text" id="SideB" name="SideB"><br>
-        <label for="SideC">Side C:</label><br>
-        <input type="text" id="SideC" name="SideC"><br>
-        <label for="Heron'sFormulaResults">Area (Result)</label><br>
-        <input type="text" id="Heron'sFormulaResults" name="Heron'sFormulaResults" readonly="True"><br>
-        <input type="submit" value="Calculate">
-    </form>
-    <form action="Ambiguous Case">
-        <label for="AngleA">Angle A:</label><br>
-        <input type="text" id="AngleA" name="AngleA"><br>
-        <label for="SideA">Side A:</label><br>
-        <input type="text" id="SideA" name="SideA"><br>
-        <label for="AngleB">Angle B:</label><br>
-        <input type="text" id="AngleB" name="AngleB"><br>
-        <label for="TriangleTypeResults">Triangle Type (Result)</label><br>
-        <input type="text" id="TriangleTypeResults" name="TriangleTypeResults" readonly="True"><br>
-        <input type="submit" value="Calculate">
-    </form>
-    <form action="Newton's Method">
-        <label for="RootGuess">Root Guess:</label><br>
-        <input type="text" id="RootGuess" name="RootGuess"><br>
-        <label for="RootResults">Root Approximation (Result)</label><br>
-        <input type="text" id="RootResults" name="RootResults" readonly="True"><br>
-        <input type="submit" value="Calculate">
-    </form>
-    <form action="Polynomial Function">
-        <label for="Coefficients">Coefficients:</label><br>
-        <input type="text" id="Coefficients" name="Coefficients"><br>
-        <label for="Exponents">Exponents:</label><br>
-        <input type="text" id="Exponents" name="Exponents"><br>
-        <label for="XValue">X Value:</label><br>
-        <input type="text" id="XValue" name="XValue"><br>
-        <label for="PolynomialFunctionResults">Polynomial Function (Result)</label><br>
-        <input type="text" id="PolynomialFunctionResults" name="PolynomialFunctionResults" readonly="True"><br>
-        <label for="PolynomialEvaluationResults">Polynomial Evaluation (Result)</label><br>
-        <input type="text" id="PolynomialEvaluationResults" name="PolynomialEvaluationResults" readonly="True"><br>
-        <input type="submit" value="Calculate">
-    </form>
+    <div class="form-container">
+        <form action="Heron's Formula">
+            <p>Heron's Formula</p>
+            <label for="SideA">Side A:</label><br>
+            <input type="text" id="SideA" name="SideA"><br>
+            <label for="SideB">Side B:</label><br>
+            <input type="text" id="SideB" name="SideB"><br>
+            <label for="SideC">Side C:</label><br>
+            <input type="text" id="SideC" name="SideC"><br>
+            <label for="Heron'sFormulaResults">Area (Result)</label><br>
+            <input type="text" id="Heron'sFormulaResults" name="Heron'sFormulaResults" readonly><br>
+            <input type="submit" value="Calculate">
+        </form>
+        <form action="Ambiguous Case">
+            <p>Ambiguous Case</p>
+            <label for="AngleA">Angle A:</label><br>
+            <input type="text" id="AngleA" name="AngleA"><br>
+            <label for="SideA">Side A:</label><br>
+            <input type="text" id="SideA" name="SideA"><br>
+            <label for="AngleB">Angle B:</label><br>
+            <input type="text" id="AngleB" name="AngleB"><br>
+            <label for="TriangleTypeResults">Triangle Type (Result)</label><br>
+            <input type="text" id="TriangleTypeResults" name="TriangleTypeResults" readonly><br>
+            <input type="submit" value="Calculate">
+        </form>
+        <form action="Newton's Method">
+            <p>Newton's Method</p>
+            <label for="RootGuess">Root Guess:</label><br>
+            <input type="text" id="RootGuess" name="RootGuess"><br>
+            <label for="RootResults">Root Approximation (Result)</label><br>
+            <input type="text" id="RootResults" name="RootResults" readonly><br>
+            <input type="submit" value="Calculate">
+        </form>
+        <form action="Polynomial Function">
+            <p>Polynomial Function</p>
+            <label for="Coefficients">Coefficients:</label><br>
+            <input type="text" id="Coefficients" name="Coefficients"><br>
+            <label for="Exponents">Exponents:</label><br>
+            <input type="text" id="Exponents" name="Exponents"><br>
+            <label for="XValue">X Value:</label><br>
+            <input type="text" id="XValue" name="XValue"><br>
+            <label for="PolynomialFunctionResults">Polynomial Function (Result)</label><br>
+            <input type="text" id="PolynomialFunctionResults" name="PolynomialFunctionResults" readonly><br>
+            <label for="PolynomialEvaluationResults">Polynomial Evaluation (Result)</label><br>
+            <input type="text" id="PolynomialEvaluationResults" name="PolynomialEvaluationResults" readonly><br>
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
     <script defer src="script.js"></script>
 </body>
 </html>
