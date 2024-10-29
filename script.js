@@ -1,10 +1,22 @@
 var HeronListener = document.getElementById("HeronsFormula");
-HeronListener.addEventListener(submit, HeronsFormula());
+HeronListener.addEventListener("submit", function(event) {
+    event.preventDefault();
+    HeronsFormula();
+});
 function HeronsFormula(){
-    var A = document.getElementbyId("HeronsFormula").SideA.value
-    var B = document.getElementbyId("HeronsFormula").SideB.value
-    var C = document.getElementbyId("HeronsFormula").SideC.value
-    alert ("Form Submitted");
-    document.getElementbyId("HeronsFormula").AreaResults = Answer
-    Answer.innerHTML = 0.25*Math.sqrt(4*A**3*B**3-(A**2+B**2-C**2)**2)
+    var Answer="";
+    var A = parseFloat(document.getElementById("SideA").value);
+    var B = parseFloat(document.getElementById("SideB").value);
+    var C = parseFloat(document.getElementById("SideC").value);
+    if (isNaN(A) || isNaN(B) || isNaN(C)) {
+        alert("Please enter valid numbers for all sides.");
+        return;
+    };
+    alert("Form Submitted");
+    Answer = 0.25*Math.sqrt(4*A**2*B**2-(A**2+B**2-C**2)**2);
+    if (Answer==NaN | Answer==0){
+        document.getElementById("AreaResults").value = "No Area Possible";
+        return
+    }
+    document.getElementById("AreaResults").value = Answer;
 };
