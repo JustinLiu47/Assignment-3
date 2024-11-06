@@ -1,7 +1,7 @@
-document.getElementById("HeronsFormula").addEventListener("submit", handleFormSubmit(HeronsFormula));
-document.getElementById("AmbiguousCase").addEventListener("submit", handleFormSubmit(AmbiguousCaseFormula));
-document.getElementById("NewtonsMethod").addEventListener("submit", handleFormSubmit(NewtonsMethod));
-document.getElementById("PolynomialFunction").addEventListener("submit", handleFormSubmit(PolynomialFunction));
+document.getElementById("heronsFormula").addEventListener("submit", handleFormSubmit(heronsFormula));
+document.getElementById("ambiguousCase").addEventListener("submit", handleFormSubmit(ambiguousCaseFormula));
+document.getElementById("newtonsMethod").addEventListener("submit", handleFormSubmit(newtonsMethod));
+document.getElementById("polynomialFunction").addEventListener("submit", handleFormSubmit(polynomialFunction));
 
 function handleFormSubmit(callback) {
     return function(event) {
@@ -10,86 +10,86 @@ function handleFormSubmit(callback) {
     };
 }
 
-function HeronsFormula() {
-    const A = parseFloat(document.getElementById("SideA").value);
-    const B = parseFloat(document.getElementById("SideB").value);
-    const C = parseFloat(document.getElementById("SideC").value);
+function heronsFormula() {
+    const a = parseFloat(document.getElementById("sideA").value);
+    const b = parseFloat(document.getElementById("sideB").value);
+    const c = parseFloat(document.getElementById("sideC").value);
 
-    if (isNaN(A) || isNaN(B) || isNaN(C)) {
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
         alert("Please enter valid numbers for all sides.");
         return;
     }
 
-    const Answer = 0.25 * Math.sqrt(4 * A ** 2 * B ** 2 - (A ** 2 + B ** 2 - C ** 2) ** 2);
-    document.getElementById("AreaResults").value = isNaN(Answer) || Answer === 0 ? "No Area Possible" : Answer;
+    const answer = 0.25 * Math.sqrt(4 * a ** 2 * b ** 2 - (a ** 2 + b ** 2 - c ** 2) ** 2);
+    document.getElementById("areaResults").value = isNaN(answer) || answer === 0 ? "No Area Possible" : answer;
 }
 
-function AmbiguousCaseFormula() {
-    const AA = parseFloat(document.getElementById("AngleA").value);
-    const SA = parseFloat(document.getElementById("SideA_Ambiguous").value);
-    const SB = parseFloat(document.getElementById("SideB_Ambiguous").value);
+function ambiguousCaseFormula() {
+    const aA = parseFloat(document.getElementById("angleA").value);
+    const sS = parseFloat(document.getElementById("sideA_Ambiguous").value);
+    const sB = parseFloat(document.getElementById("sideB_Ambiguous").value);
 
-    if (isNaN(AA) || AA >= 180 || isNaN(SA) || isNaN(SB)) {
+    if (isNaN(aA) || aA >= 180 || isNaN(sA) || isNaN(sB)) {
         alert("Please enter valid numbers for the angle (Below 180° for a valid triangle) and sides.");
         return;
     }
 
-    const RadAA = AA * (Math.PI / 180);
-    const h = SB * Math.sin(RadAA);
+    const radAA = aA * (Math.PI / 180);
+    const h = sB * Math.sin(radAA);
 
-    if (AA > 90) {
-        document.getElementById("TriangleTypeResults").value = (SA <= SB) ? "No Triangle" : "One Triangle";
-    } else if (AA === 90) {
-        document.getElementById("TriangleTypeResults").value = "Right Triangle";
-    } else if (SA < h) {
-        document.getElementById("TriangleTypeResults").value = "No Triangle";
-    } else if (h < SA && SA < SB) {
-        document.getElementById("TriangleTypeResults").value = "Two Triangles (Ambiguous Case)";
+    if (aA > 90) {
+        document.getElementById("triangleTypeResults").value = (sa <= sb) ? "No Triangle" : "One Triangle";
+    } else if (aA === 90) {
+        document.getElementById("triangleTypeResults").value = "Right Triangle";
+    } else if (sA < h) {
+        document.getElementById("triangleTypeResults").value = "No Triangle";
+    } else if (h < sA && sA < sB) {
+        document.getElementById("triangleTypeResults").value = "Two Triangles (Ambiguous Case)";
     } else {
-        document.getElementById("TriangleTypeResults").value = "One Triangle";
+        document.getElementById("triangleTypeResults").value = "One Triangle";
     }
 }
 
-function NewtonsMethod() {
-    let x = parseFloat(document.getElementById("RootGuess").value);
+function newtonsMethod() {
+    let x = parseFloat(document.getElementById("rootGuess").value);
     if (isNaN(x)) {
         alert("Please enter a valid number");
         return;
     }
 
-    let Approximation;
+    let approximation;
     do {
-        Approximation = x - (6 * x ** 4 - 13 * x ** 3 - 18 * x ** 2 + 7 * x + 6) / (24 * x ** 3 - 39 * x ** 2 - 36 * x + 7);
-        if (Math.abs(x - Approximation) <= 0.0000001) break;
-        x = Approximation;
+        approximation = x - (6 * x ** 4 - 13 * x ** 3 - 18 * x ** 2 + 7 * x + 6) / (24 * x ** 3 - 39 * x ** 2 - 36 * x + 7);
+        if (Math.abs(x - approximation) <= 0.0000001) break;
+        x = approximation;
     } while (true);
 
-    document.getElementById("RootResults").value = Approximation;
+    document.getElementById("rootResults").value = approximation;
 }
 
-function PolynomialFunction() {
-    const Coefficients = document.getElementById("Coefficients").value.split(" ").map(parseFloat);
-    const Exponents = document.getElementById("Exponents").value.split(" ").map(parseFloat);
-    const XValue = parseFloat(document.getElementById("XValue").value);
-    let Function = "";
+function polynomialFunction() {
+    const coefficients = document.getElementById("coefficients").value.split(" ").map(parseFloat);
+    const exponents = document.getElementById("exponents").value.split(" ").map(parseFloat);
+    const xValue = parseFloat(document.getElementById("xValue").value);
+    let func = "";
     let value = 0;
 
-    for (let i = 0; i < Coefficients.length; i++) {
-        const n = Coefficients[i];
-        const e = Exponents[i];
-    
+    for (let i = 0; i < coefficients.length; i++) {
+        const n = coefficients[i];
+        const e = exponents[i];
+
         if (isNaN(n)) break;
-    
+
         if (i === 0) {
-            Function += (n < 0) ? "-" : "";
+            func += (n < 0) ? "-" : "";
         } else {
-            Function += (n < 0) ? " - " : " + ";
+            func += (n < 0) ? " - " : " + ";
         }
-    
-        Function += Math.abs(n) + "x^" + e;
-        value += n * XValue ** e;
+
+        func += Math.abs(n) + "x^" + e;
+        value += n * xValue ** e;
     }
 
-    document.getElementById("PolynomialFunctionResults").value = "f(x) = " + Function;
-    document.getElementById("PolynomialEvaluationResults").value = "f(" + XValue + ") = " + value;
+    document.getElementById("polynomialFunctionResults").value = "f(x) = " + func;
+    document.getElementById("polynomialEvaluationResults").value = "f(" + xValue + ") = " + value;
 }
